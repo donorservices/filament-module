@@ -8,11 +8,12 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('migration_table_name_table', function (Blueprint $table) {
+        Schema::create('filament_module_table', function (Blueprint $table) {
             $table->id();
-
-            // add fields
-
+            $table->string('name')->unique();
+            $table->boolean('is_active')->default(false);
+            $table->json('resources')->nullable();
+            $table->json('pages')->nullable();
             $table->timestamps();
         });
     }

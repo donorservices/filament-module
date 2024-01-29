@@ -1,20 +1,24 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace DonorServices\FilamentModule;
 
+use DonorServices\FilamentModule\Resources\ModuleResource;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-class SkeletonPlugin implements Plugin
+class FilamentModulePlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'skeleton';
+        return 'filament-module';
     }
 
     public function register(Panel $panel): void
     {
-        //
+        $panel
+            ->resources([
+                ModuleResource::class
+            ]);
     }
 
     public function boot(Panel $panel): void
