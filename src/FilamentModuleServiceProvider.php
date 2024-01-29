@@ -148,7 +148,7 @@ class FilamentModuleServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_filament-module_table',
+            'create_filament_module_table',
         ];
     }
 }
