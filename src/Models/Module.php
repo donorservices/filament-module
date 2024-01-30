@@ -54,7 +54,7 @@ class Module extends Model
             return $classes;
         }
 
-        $files = File::allFiles($directory);
+        $files = File::files($directory);
         foreach ($files as $file) {
             $relativePath = str_replace(base_path() . '/', '', $file->getPath());
             $namespace = str_replace('/', '\\', $relativePath);
