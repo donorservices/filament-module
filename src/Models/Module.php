@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Log;
 
 class Module extends Model
 {
+
+    protected $table = "filament_module_table";
     protected static string $filament_path = "app/Filament";
 
     protected $fillable = ['name', 'is_active', 'resources', 'pages'];
