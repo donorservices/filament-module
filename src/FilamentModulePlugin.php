@@ -2,6 +2,7 @@
 
 namespace DonorServices\FilamentModule;
 
+use DonorServices\FilamentModule\Models\Module;
 use DonorServices\FilamentModule\Resources\ModuleResource;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
@@ -17,7 +18,11 @@ class FilamentModulePlugin implements Plugin
     {
         $panel
             ->resources([
-                ModuleResource::class
+                ModuleResource::class,
+                ...Module::activeResources()
+            ])
+            ->pages([
+                ...Module::activePages()
             ]);
     }
 
