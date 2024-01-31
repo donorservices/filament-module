@@ -19,10 +19,10 @@ class FilamentModulePlugin implements Plugin
         $panel
             ->resources([
                 ModuleResource::class,
-                ...Module::activeResources()
+                ...Module::activeResources(),
             ])
             ->pages([
-                ...Module::activePages()
+                ...Module::activePages(),
             ]);
     }
 

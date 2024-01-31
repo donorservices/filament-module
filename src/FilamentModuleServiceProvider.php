@@ -2,6 +2,8 @@
 
 namespace DonorServices\FilamentModule;
 
+use DonorServices\FilamentModule\Commands\FilamentModuleCommand;
+use DonorServices\FilamentModule\Testing\TestsFilamentModule;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
@@ -13,8 +15,6 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use DonorServices\FilamentModule\Commands\FilamentModuleCommand;
-use DonorServices\FilamentModule\Testing\TestsFilamentModule;
 
 class FilamentModuleServiceProvider extends PackageServiceProvider
 {
@@ -103,8 +103,8 @@ class FilamentModuleServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('filament-module', __DIR__ . '/../resources/dist/components/filament-module.js'),
-//            Css::make('filament-module-styles', __DIR__ . '/../resources/dist/filament-module.css'),
-//            Js::make('filament-module-scripts', __DIR__ . '/../resources/dist/filament-module.js'),
+            //            Css::make('filament-module-styles', __DIR__ . '/../resources/dist/filament-module.css'),
+            //            Js::make('filament-module-scripts', __DIR__ . '/../resources/dist/filament-module.js'),
         ];
     }
 

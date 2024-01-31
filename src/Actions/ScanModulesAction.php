@@ -11,16 +11,14 @@ class ScanModulesAction
     public static function make()
     {
         return Action::make('scan_modules')
-            ->action(function ()
-            {
+            ->action(function () {
                 try {
                     Module::dispatchRescanJob();
                     Notification::make()
                         ->title('Scan of modules started')
                         ->success()
                         ->send();
-                } catch (\Exception $e)
-                {
+                } catch (\Exception $e) {
                     Notification::make()
                         ->title('Failed')
                         ->body($e)

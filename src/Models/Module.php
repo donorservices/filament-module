@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Log;
 
 class Module extends Model
 {
+    protected $table = 'filament_module_table';
 
-    protected $table = "filament_module_table";
-    protected static string $filament_path = "app/Filament";
+    protected static string $filament_path = 'app/Filament';
 
     protected $fillable = ['name', 'is_active', 'resources', 'pages'];
 
@@ -50,7 +50,7 @@ class Module extends Model
     protected static function discoverClassesInDirectory(string $directory): array
     {
         $classes = [];
-        if (!File::exists($directory)) {
+        if (! File::exists($directory)) {
             return $classes;
         }
 
@@ -71,7 +71,7 @@ class Module extends Model
 
     protected static function generateDirectoryHash($directory): string
     {
-        if (!File::exists($directory)) {
+        if (! File::exists($directory)) {
             return '';
         }
 
@@ -83,32 +83,31 @@ class Module extends Model
         }
 
         sort($hashData);
+
         return md5(implode('', $hashData));
     }
-
 
     public static function dispatchRescanJob(): void
     {
         try {
             RescanModuleResources::dispatch();
-            Log::info("RescanModuleResources job dispatched successfully.");
+            Log::info('RescanModuleResources job dispatched successfully.');
         } catch (\Exception $e) {
-            Log::error("Failed to dispatch RescanModuleResources job: " . $e->getMessage());
+            Log::error('Failed to dispatch RescanModuleResources job: ' . $e->getMessage());
         }
     }
 
     public static function activeResources()
     {
         return static::where('is_active', true)->get()
-            ->flatMap(fn($module) => $module->resources)
+            ->flatMap(fn ($module) => $module->resources)
             ->toArray();
     }
 
     public static function activePages()
     {
         return static::where('is_active', true)->get()
-            ->flatMap(fn($module) => $module->pages)
+            ->flatMap(fn ($module) => $module->pages)
             ->toArray();
     }
 }
-

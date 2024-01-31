@@ -2,8 +2,6 @@
 
 namespace DonorServices\FilamentModule\Resources;
 
-use App\Filament\Resources\ModuleResource\Pages;
-use App\Filament\Resources\ModuleResource\RelationManagers;
 use DonorServices\FilamentModule\Models\Module;
 use Filament\Forms;
 use Filament\Forms\Form;
